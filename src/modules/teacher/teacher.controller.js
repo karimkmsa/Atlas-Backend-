@@ -1,4 +1,4 @@
-import { teacherModel } from "../../../database/models/teacher.models.js"
+import { teacherModel } from "../../../databases/models/teacher.models.js"
 import { Apifeatures } from "../../utils/Apifeatures.js"
 import { AppError } from "../../utils/AppError.js"
 import { catchError } from "../../utils/catchError.js"
