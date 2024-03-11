@@ -17,7 +17,23 @@ age: {
     type:Number,
     required:true
 
-}},{
+},
+email:{
+    type:String,
+    required:true
+
+
+},
+complaint:{
+    type:String,
+
+
+}
+
+
+
+
+},{
     timestamps: true
 })
 
