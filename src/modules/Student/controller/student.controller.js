@@ -1,3 +1,4 @@
+import complaintModel from "../../../../databases/models/complaints.models.js";
 import { studentModel } from "../../../databases/models/studentModel.models.js"
 import { AppError } from "../../utils/AppError.js"
 import { catchError } from "../../utils/catchError.js"
@@ -15,12 +16,13 @@ export const getgrades = catchError(async (req, res, next) => {
   });
 
 
-  //  Get subject BY_ID
+  //  post complaint 
   
    export  const postComplaint =catchError(async(req,res,next)=>{
-    complaint =new teacherModel(req.body)
+    complaint =new complaintModel(req.body)
     await complaint.save()
     res.status(201).json({message:"Done",complaint})
 
     })
-       
+   
+    

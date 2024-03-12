@@ -3,7 +3,7 @@ import {connection} from './databases/connection.js'
 import { bootstrap } from './src/bootstrap.js'
 import morgan from 'morgan'
 import dotenv from "dotenv"
-
+import StudentRoutes from './src/modules/Student/student.routes.js'
 
 
 
@@ -20,7 +20,7 @@ dotenv.config()
 
 connection();
 bootstrap(app)
-
+app.use('/Student',StudentRoutes)
 
 
 

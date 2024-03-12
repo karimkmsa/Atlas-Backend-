@@ -1,8 +1,8 @@
 import express from 'express';
 import *as subject from './subject.controller.js';
-import validate from '../../middleware/validate.js';
+import validate from '../../../middleware/validate.js';
 import { addSubjectsvalidation, updateSubjectValidation } from './subject.validation.js';
-import { deleteClassValidation } from '../class/class.validation.js';
+import { deleteClassValidation } from '../../class/class.validation.js';
 
 const subjectRouter=express.Router();
 

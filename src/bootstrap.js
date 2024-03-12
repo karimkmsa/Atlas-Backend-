@@ -1,7 +1,7 @@
 import { globalError } from "./middleware/globalErrorMiddleware.js";
-import ClassLevelRouter from "./modules/class/class.routes.js";
-import subjectRouter from "./modules/subject/subject.routes.js";
-import teacherRouter from "./modules/teacher/teacher.routes.js"
+import ClassLevelRouter from "./modules/Admin/class/class.routes.js";
+import subjectRouter from "./modules/Admin/subject/subject.routes.js";
+import teacherRouter from "./modules/Admin/teacher/teacher.routes.js"
 import { AppError } from "./utils/AppError.js";
 
 export function bootstrap(app){
