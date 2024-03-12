@@ -1,8 +1,8 @@
-import { teacherModel } from "../../../databases/models/teacher.models.js"
-import { Apifeatures } from "../../utils/Apifeatures.js"
-import { AppError } from "../../utils/AppError.js"
-import { catchError } from "../../utils/catchError.js"
-import { deleteOne } from "../handlers/refactor.js"
+import { teacherModel } from "../../../../databases/models/teacher.models.js"
+import { Apifeatures } from "../../../utils/Apifeatures.js"
+import { AppError } from "../../../utils/AppError.js"
+import { catchError } from "../../../utils/catchError.js"
+import { deleteOne } from "../../handlers/refactor.js"
 
 
 

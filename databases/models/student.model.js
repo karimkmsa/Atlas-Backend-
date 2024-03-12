@@ -21,13 +21,6 @@ age: {
 email:{
     type:String,
     required:true
-
-
-},
-complaint:{
-    type:String,
-
-
 }
 
 

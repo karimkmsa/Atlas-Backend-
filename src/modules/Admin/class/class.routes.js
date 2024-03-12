@@ -1,6 +1,6 @@
 import express from 'express';
 import *as ClassLevel from './class.controller.js';
-import validate from '../../middleware/validate.js';
+import validate from '../../../middleware/validate.js';
 import { addClassvalidation, deleteClassValidation, updateteaherValidation } from './class.validation.js';
 
 const ClassLevelRouter=express.Router();

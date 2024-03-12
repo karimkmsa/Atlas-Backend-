@@ -1,7 +1,6 @@
 import complaintModel from "../../../../databases/models/complaints.models.js";
-import { studentModel } from "../../../databases/models/studentModel.models.js"
-import { AppError } from "../../utils/AppError.js"
-import { catchError } from "../../utils/catchError.js"
+import { AppError } from "../../../utils/AppError.js"
+import { catchError } from "../../../utils/catchError.js"
 
 
  

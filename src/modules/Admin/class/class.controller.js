@@ -1,7 +1,7 @@
-import { classModel } from "../../../databases/models/class.models.js"
-import { AppError } from "../../utils/AppError.js"
-import { catchError } from "../../utils/catchError.js"
-import { deleteOne } from "../handlers/refactor.js"
+import { classModel } from "../../../../databases/models/class.models.js"
+import { AppError } from "../../../utils/AppError.js"
+import { catchError } from "../../../utils/catchError.js"
+import { deleteOne } from "../../handlers/refactor.js"
 
 
 
