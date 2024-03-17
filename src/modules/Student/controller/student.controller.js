@@ -7,12 +7,12 @@ import { catchError } from "../../../utils/catchError.js"
  
 
 
-// Get Student grades 
-export const getgrades = catchError(async (req, res, next) => {
-    let subject = await subjectModel.find();
-    // created
-      res.status(201).json({ message: "your grades is", subject });
-  });
+// // Get Student grades 
+// export const getgrades = catchError(async (req, res, next) => {
+//     let subject = await subjectModel.find();
+//     // created
+//       res.status(201).json({ message: "your grades is", subject });
+//   });
 
 
   //  post complaint 
