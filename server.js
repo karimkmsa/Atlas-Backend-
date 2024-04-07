@@ -7,7 +7,6 @@ import dotenv from "dotenv"
 
 
 
-
 const app= express()
 app.use(morgan("dev"))
 app.use(express.json())
