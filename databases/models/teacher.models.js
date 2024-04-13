@@ -30,10 +30,6 @@ Address:{
     required:true,
     trim:true,
 },
-image:{
-    type:String,
-    // required:true,
-},
 dateOfBirth:{
     type:Date,
     required:true,
@@ -46,15 +42,6 @@ placeOfBirth:{
 }, 
 
 
-// email: {
-//     type: String,
-//     unique: [true, 'email must be unique value'],
-//     required: [true, 'email is required'],
-// },
-// password: {
-//     type: String,
-//     required: [true, 'password is required'],
-// },
 role: {
     type: String,
     enum:['admin','teacher'],

@@ -26,7 +26,6 @@ duration: {
 createdby: {
     type: Schema.Types.ObjectId,
     ref: 'admin',
-    // required: true
 },
 updatedBy: {
     type: Schema.Types.ObjectId,
@@ -44,8 +43,6 @@ programId: {
     type: Schema.Types.ObjectId,
     ref: 'program',
 },
-
-
  
 },{timeStamp:true});
 

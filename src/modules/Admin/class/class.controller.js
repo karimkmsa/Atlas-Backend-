@@ -8,7 +8,7 @@ import { deleteOne } from "../../handlers/refactor.js"
 // Add class
 const addClassLevel = catchError(async(req,res,next) => {
     
-    // req.body.Createdby = req.user._id
+// req.body.Createdby = req.user._id
     
     const ClassLevel =new classModel(req.body)
     await ClassLevel.save()
