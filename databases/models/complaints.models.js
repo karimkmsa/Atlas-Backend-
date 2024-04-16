@@ -5,6 +5,12 @@ const complaintSchema = new mongoose.Schema({
 complaint:{
     type:String
 }
+,
+role: {
+    type: String,
+    enum:['admin','teacher','student','parent'],
+    default:'student'
+}
 },{
     timestamps: true
 })

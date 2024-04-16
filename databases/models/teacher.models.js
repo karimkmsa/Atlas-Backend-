@@ -30,56 +30,6 @@ Address:{
     required:true,
     trim:true,
 },
-dateOfBirth:{
-    type:Date,
-    required:true,
-    trim:true,
-},
-placeOfBirth:{
-    type:String,
-    required:true,
-    trim:true,
-}, 
-
-
-role: {
-    type: String,
-    enum:['admin','teacher'],
-    default:'techer',
-    // required: [true, 'role is required'],
-
-    
-},
-
-
-// Education Information
-university:{
-    type:String,
-    required:true,
-    trim:true,
-},
-degree:{
-    type:String,
-    required:true,
-    trim:true,
-},
-
-city:{
-    type:String,
-    required:true,
-    trim:true,
-},
-
-
-    started_date: {
-        type: Date
-    },
-    finished_date: {
-        type: Date
-    },
-     
-
-
     subject:{
         type:Schema.ObjectId,
         ref:"subject",
