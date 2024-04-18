@@ -1,3 +1,4 @@
+import { number } from "joi";
 import mongoose from "mongoose";
 
 const parentSchema = new mongoose.Schema(
@@ -14,15 +15,26 @@ const parentSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    phone:{
+      type:String,
+      required:true
+
+    },
+    Address:{
+      type:String,
+      required:true
+
+    },
     student: {
       type: Schema.ObjectId,
       ref: "student",
     },
-    role: {
-      type: String,
-      enum: ["admin", "teacher", "student", "parent"],
-      default: "parent",
-    },
+    role :{
+      type:String,
+      default:"parent"
+  
+  
+  }
   },
   {
     timestamps: true,

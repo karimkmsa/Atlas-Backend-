@@ -1,38 +1,46 @@
+import { date } from "joi";
 import mongoose from "mongoose";
 
+const studentSchema = new mongoose.Schema(
+  {
+    firstName: {
+      type: String,
+      required: true,
+    },
+    lastName: {
+      type: String,
+      required: true,
+    },
+    dateOfBirth: {
+      type: Date,
+      required: true,
+    },
+    dateOfPlace: {
+      type: String,
+      required: true,
+    },
+    address: {
+      type: String,
+      required: true,
+    },
+    grade: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+    },
+    role: {
+      type: String,
+      default: "student",
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
-const studentSchema = new mongoose.Schema({
- firstName: {
-    type: String,
-    required:true
-
-
- },
- LastName:{
-    type: String,
-    required:true
-
-},
-grade: {
-    type:String,
-    required:true
-
-},
-email:{
-    type:String,
-    required:true
-}
-
-
-
-
-},{
-    timestamps: true
-})
-
-const studentModel = mongoose.model("Student",studentSchema);
-
+const studentModel = mongoose.model("Student", studentSchema);
 
 export default studentModel;
-
-
