@@ -1,8 +1,9 @@
+import * as dotenv from "dotenv";
+dotenv.config();
 import express from 'express'
 import {connection} from './databases/connection.js'
 import { bootstrap } from './src/bootstrap.js'
 import morgan from 'morgan'
-import dotenv from "dotenv"
 
 
 
@@ -13,7 +14,6 @@ app.use(express.json())
 
 const port = 3000 
 
-dotenv.config()
 
 
 connection();
