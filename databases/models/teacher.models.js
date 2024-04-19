@@ -30,6 +30,10 @@ const teacherSchema = new Schema(
       required: true,
       trim: true,
     },
+    password:{
+      type: String,
+      required: true,
+    },
     address: {
       type: String,
       required: true,
@@ -62,7 +66,6 @@ const teacherSchema = new Schema(
       },
       endDate: {
         type: Date,
-        required: true,
       },
       city: {
         type: String,

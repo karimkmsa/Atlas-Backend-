@@ -3,10 +3,9 @@ import { generateToken } from "../../../middleware/authToken.js";
 import { catchError } from "../../../utils/catchError.js";
 import bcrypt from 'bcrypt';
 
-
+// Sign Up 
 export const signUp = catchError(async (req, res, next) => {
   let { firstName, lastName, email, password } = req.body;
-  console.log(req.body);
   const exist = await adminModel.findOne({ email });
   if (exist) {
     return res
@@ -32,7 +31,7 @@ export const signUp = catchError(async (req, res, next) => {
   }
   
 });
-// Sign in controller
+    // Sign in controller
 export const signIn = async (req, res) => {
   try {
     const { email, password } = req.body;

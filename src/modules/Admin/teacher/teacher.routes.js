@@ -7,11 +7,9 @@ const teacherRouter=express.Router();
 
 
 
-teacherRouter.route('/')
-.post(validate(addteachervalidation), teacher.addTeacher)
-.get(teacher.getAllteachers)
+teacherRouter.route('/').get(teacher.getAllteachers)
 
-// teacherRouter.get('/profile',teacher.GetTeacherProfile)
+teacherRouter.route("/addteacher").post(teacher.addTeacher)
 teacherRouter.route('/:id')
 .get(teacher.getTeacherByID)
 .put(validate(updateteaherValidation), teacher.updateTeacher)

@@ -2,18 +2,39 @@ import studentModel from "../../../../../databases/models/student.model.js"
 import { AppError } from "../../../../utils/AppError.js"
 import { catchError } from "../../../../utils/catchError.js"
 import { deleteOne } from "../../../handlers/refactor.js"
+import { generateToken } from "../../../../middleware/authToken.js";
+ 
 
 
 
 // Add Student
-export const addStudent = catchError(async(req,res,next) => {
+export const addStudent = catchError(async (req, res, next) => {
     let studentData= req.body
-        let result = new studentModel(studentData)
-        await result.save()
-        res.status(201).json({success:true,message:"studentData added", result})
-}) 
-
-
+    const exist = await studentModel.findOne({email:studentData.email });
+    if (exist) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Student email already exist" });
+    }
+    let result = new studentModel(studentData);
+    
+    try {
+      await result.save();
+      const token = generateToken({
+        id: result._id,
+        email: result.email,
+        role: result.role,
+      },process.env.JWT_SECRET)
+      res
+        .status(201)
+        .json({ success: true, message: "Student Added", result });
+    } catch (error) {
+      console.error("Error saving to the database:", error);
+      res.status(500).json({ success: false, message: "Internal server error" });
+    }
+    
+  });
+   
 // Get StudentData
 export const getAllSubjects = catchError(async (req, res, next) => {
     let studentData = await studentModel.find();

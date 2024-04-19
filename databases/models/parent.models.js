@@ -1,5 +1,4 @@
-import { number } from "joi";
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const parentSchema = new mongoose.Schema(
   {
@@ -7,11 +6,15 @@ const parentSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    LastName: {
+    lastName: {
       type: String,
       required: true,
     },
     email: {
+      type: String,
+      required: true,
+    },
+    password:{
       type: String,
       required: true,
     },
@@ -20,14 +23,14 @@ const parentSchema = new mongoose.Schema(
       required:true
 
     },
-    Address:{
+    address:{
       type:String,
       required:true
 
     },
     student: {
       type: Schema.ObjectId,
-      ref: "student",
+      ref: "Student",
     },
     role :{
       type:String,
