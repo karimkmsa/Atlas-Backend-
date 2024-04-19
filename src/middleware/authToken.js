@@ -7,7 +7,8 @@ dotenv.config();
 const secretKey = process.env.JWT_SECRET;
 
 const verifyToken = (req, res, next) => {
-  let authHeader = req.headers.Authorization;
+  let authHeader = req.headers.authorization;
+  console.log(authHeader);
   if (!authHeader) {
     return res.status(401).json({ message: "No token provided, authorization denied" });
   }
