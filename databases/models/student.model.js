@@ -1,4 +1,7 @@
 import mongoose from "mongoose";
+import bcrypt from 'bcrypt';
+
+
 
 const studentSchema = new mongoose.Schema(
   {
@@ -43,6 +46,18 @@ const studentSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
+
+studentSchema.pre("save", function () {
+  this.password = bcrypt.hashSync(this.password, parseInt(process.env.SALTROUND))
+})
+
+studentSchema.pre('findOneAndUpdate',function(){
+  // console.log(this)
+      if(this._update.password)this._update.password=bcrypt.hashSync(this._update.password,parseInt(process.env.SALTROUND))
+  })
+  
+
+
 
 const studentModel = mongoose.model("Student", studentSchema);
 

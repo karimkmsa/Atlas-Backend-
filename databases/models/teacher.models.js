@@ -1,4 +1,6 @@
 import { Schema, Types, model } from "mongoose";
+import bcrypt from 'bcrypt';
+
 
 const teacherSchema = new Schema(
   {
@@ -79,5 +81,18 @@ const teacherSchema = new Schema(
   },
   { timeStamp: true }
 );
+teacherSchema.pre("save", function () {
+  this.password = bcrypt.hashSync(this.password, parseInt(process.env.SALTROUND))
+})
+
+teacherSchema.pre('findOneAndUpdate',function(){
+  // console.log(this)
+      if(this._update.password)this._update.password=bcrypt.hashSync(this._update.password,parseInt(process.env.SALTROUND))
+  })
+  
+
+
+
+
 
 export const teacherModel = model("teacher", teacherSchema);

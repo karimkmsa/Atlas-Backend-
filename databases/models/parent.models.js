@@ -1,4 +1,8 @@
 import mongoose, { Schema } from "mongoose";
+import bcrypt from 'bcrypt';
+
+
+
 
 const parentSchema = new mongoose.Schema(
   {
@@ -41,6 +45,17 @@ const parentSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
+parentSchema.pre("save", function () {
+  this.password = bcrypt.hashSync(this.password, parseInt(process.env.SALTROUND))
+})
+
+parentSchema.pre('findOneAndUpdate',function(){
+      if(this._update.password)this._update.password=bcrypt.hashSync(this._update.password,parseInt(process.env.SALTROUND))
+  })
+  
+
+
+
 
 const parentModel = mongoose.model("parent", parentSchema);
 
