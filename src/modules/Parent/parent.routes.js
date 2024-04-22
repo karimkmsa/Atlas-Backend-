@@ -3,10 +3,10 @@ import {AddMedicalRecord, showMedicalRecord, UpdateMedicalRecord, deleteMedicalR
 
 const router = express.Router()
 
-router.post("/AddMedicalRecord",AddMedicalRecord)
-router.get("/showMedicalRecord",showMedicalRecord)
-router.put("/UpdateMedicalRecord",UpdateMedicalRecord)
-router.delete("/deleteMedicalRecord",deleteMedicalRecord)
+router.post("/add-medical-record",AddMedicalRecord)
+router.get("/show-medical-record",showMedicalRecord)
+router.put("/update-medical-record",UpdateMedicalRecord)
+router.delete("/delete-medical-record",deleteMedicalRecord)
 
 
 export default router
