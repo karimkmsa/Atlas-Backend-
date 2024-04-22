@@ -35,8 +35,6 @@ const parentSchema = new mongoose.Schema(
     role :{
       type:String,
       default:"parent"
-  
-  
   }
   },
   {

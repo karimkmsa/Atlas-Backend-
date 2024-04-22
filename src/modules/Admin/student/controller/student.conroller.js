@@ -36,7 +36,7 @@ export const addStudent = catchError(async (req, res, next) => {
   });
    
 // Get StudentData
-export const getAllSubjects = catchError(async (req, res, next) => {
+export const getAllStudent = catchError(async (req, res, next) => {
     let studentData = await studentModel.find();
     // created
       res.status(201).json({ success:true,message: "Done this is StudentData", studentData });
