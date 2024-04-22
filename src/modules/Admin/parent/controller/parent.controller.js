@@ -65,6 +65,7 @@ const updateParent= catchError(async(req,res,next)=>{
 
 
 
+//  delete parent 
 
  const deleteparent= deleteOne(parentModel,"parent")
 

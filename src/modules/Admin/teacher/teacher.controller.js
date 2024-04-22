@@ -62,7 +62,8 @@ const getAllteachers=catchError(async(req,res,next)=>{
         }
 
     })
-     
+   //  updateTeacher
+
 const updateTeacher= catchError(async(req,res,next)=>{
     const{id}=req.params
     const teacher=await teacherModel.findByIdAndUpdate(
@@ -86,7 +87,6 @@ export {
  addTeacher,
  getAllteachers,   
  getTeacherByID,
-//GetTeacherProfile,
  updateTeacher,
  deleteTeacher
 }

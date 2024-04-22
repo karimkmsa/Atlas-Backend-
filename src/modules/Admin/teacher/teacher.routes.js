@@ -12,7 +12,7 @@ teacherRouter.route('/').get(teacher.getAllteachers)
 teacherRouter.route("/addteacher").post(teacher.addTeacher)
 teacherRouter.route('/:id')
 .get(teacher.getTeacherByID)
-.put(validate(updateteaherValidation), teacher.updateTeacher)
-.delete(validate(deleteteacherValidation),teacher.deleteTeacher)
+.put( teacher.updateTeacher)
+.delete(teacher.deleteTeacher)
 
 export default teacherRouter

@@ -38,6 +38,7 @@ const getAllSubjects = catchError(async (req, res, next) => {
 
 
     
+  // updateSubject
 
 
 const updateSubject= catchError(async(req,res,next)=>{

@@ -58,6 +58,7 @@ export const getAllStudent = catchError(async (req, res, next) => {
 
 
     
+  //  updateStudentData
 
 
 export const updateStudentData= catchError(async(req,res,next)=>{

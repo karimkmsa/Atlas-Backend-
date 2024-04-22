@@ -45,8 +45,8 @@ const teacherSchema = new Schema(
       type: Date,
       required: true,
     },
-    dateOfPlace: {
-      type: String,
+    placeOfBirth: {
+      type:String,
       required: true,
     },
     subject: {

@@ -1,8 +1,8 @@
 import Joi from "joi";
 
 const addteachervalidation = Joi.object({
-  firstname: Joi.string().min(2).max(20).required(),
-  lastname: Joi.string().min(2).max(20).required(),
+  firstName: Joi.string().min(2).max(20).required(),
+  lastName: Joi.string().min(2).max(20).required(),
   phone: Joi.number().required(),
   Address: Joi.string().min(2).max(50).required(),
   image: Joi.string(),
