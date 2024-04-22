@@ -18,7 +18,7 @@ export const login = catchError(async (req, res, next) => {
 
     let user = await userCollection.findOne({ email });
     
-    if (!user || !user.password ) 
+    if (!user || !user.password || !bcrypt.compareSync(password, user.password)) 
         return next(new AppError("Invalid email or password or role", 401)); 
     
  
