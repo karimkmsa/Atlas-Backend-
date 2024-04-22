@@ -3,7 +3,8 @@ import mongoose from "mongoose";
 
 const medicalRecordSchema = new mongoose.Schema({
 medicalRecord:{
-    type:String
+    type:String,
+    trim:true
 }
 },{
     timestamps: true

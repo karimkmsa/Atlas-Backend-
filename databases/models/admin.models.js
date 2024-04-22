@@ -6,15 +6,18 @@ const adminSchema = new mongoose.Schema(
   {
     firstName: {
       type: String,
-      required: true,
+      required: [true,"admin first Name required"],
+      trim :true
     },
     lastName: {
       type: String,
-      required: true,
+      required: [true,"admin last Name required"],
+      trim :true
     },
     email: {
       type: String,
-      required: true,
+      required: [true,"email required"],
+      trim :true
     },
     password:{
       type: String,

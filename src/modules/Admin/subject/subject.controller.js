@@ -7,12 +7,10 @@ import { deleteOne } from "../../handlers/refactor.js"
 
     // Add Subject
 const addSubject = catchError(async(req,res,next) => {
-    
-    // req.body.Createdby = req.user._id
-    
+        
     const subject =new subjectModel(req.body)
     await subject.save()
-    res.status(201).json({message:"Done",subject})
+    res.status(201).json({succsess:true,message:"Done",subject})
 
 }) 
 
@@ -21,7 +19,7 @@ const addSubject = catchError(async(req,res,next) => {
 const getAllSubjects = catchError(async (req, res, next) => {
     let subject = await subjectModel.find();
     // created
-      res.status(201).json({ message: "Done this is subject", subject });
+      res.status(201).json({succsess:true,message: "Done this is subject", subject });
   });
 
 
@@ -32,7 +30,7 @@ const getAllSubjects = catchError(async (req, res, next) => {
         const subject=await subjectModel.findById(req.params.id)
         !subject && next(new AppError('subject not found',404))
 
-        subject &&   res.status(201).json({message:"this is subject",subject})
+        subject &&   res.status(201).json({succsess:true,message:"this is subject",subject})
 
     })
      

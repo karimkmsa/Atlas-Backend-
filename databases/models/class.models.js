@@ -18,12 +18,6 @@ const classSchema = new Schema({
         max: [1000, 'max length 2 char']
 },
 
-createdby: {
-    type: Schema.Types.ObjectId,
-    ref: 'admin',
-    // required: true
-},
-
 teachers: {
     type: Schema.Types.ObjectId,
     ref: 'teacher',

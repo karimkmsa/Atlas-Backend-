@@ -8,15 +8,18 @@ const parentSchema = new mongoose.Schema(
   {
     firstName: {
       type: String,
-      required: true,
+      required: [true,"parent first Name required"],
+      trim :true
     },
     lastName: {
       type: String,
-      required: true,
+      required: [true,"parent last Name required"],
+      trim :true
     },
     email: {
       type: String,
       required: true,
+      trim:true
     },
     password:{
       type: String,
@@ -24,12 +27,14 @@ const parentSchema = new mongoose.Schema(
     },
     phone:{
       type:String,
-      required:true
+      required:[true,"phone Number required"],
+      trim:true
 
     },
     address:{
       type:String,
-      required:true
+      required:[true,"address required"],
+      trim:true
 
     },
     student: {

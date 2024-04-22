@@ -3,7 +3,8 @@ import mongoose from "mongoose";
 
 const complaintSchema = new mongoose.Schema({
 complaint:{
-    type:String
+    type:String,
+    trim:true
 }
 ,
 role: {
