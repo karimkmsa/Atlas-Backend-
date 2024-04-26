@@ -49,6 +49,9 @@ const teacherSchema = new Schema(
       type:String,
       required: true,
     },
+    image:{
+      type:String, 
+    },
     subject: {
       type: Schema.ObjectId,
       ref: "subject",

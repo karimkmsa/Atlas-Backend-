@@ -23,6 +23,9 @@ const studentSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    image:{
+      type:String, 
+    },
     address: {
       type:String,
       required:[true,"address required"],
