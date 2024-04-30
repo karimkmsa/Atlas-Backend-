@@ -14,7 +14,7 @@ app.use(express.json())
 
 const port = 3000 
 
-// app.use(express.static("uploads"))
+app.use(express.static('uploads'));
 connection();
 bootstrap(app)
 

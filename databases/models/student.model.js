@@ -59,12 +59,12 @@ studentSchema.pre("save", function () {
 })
 
 studentSchema.pre('findOneAndUpdate',function(){
-  // console.log(this)
       if(this._update.password)this._update.password=bcrypt.hashSync(this._update.password,parseInt(process.env.SALTROUND))
   })
-  
-
-
+  studentSchema.post('init',function(doc){
+      console.log(doc.image);
+    doc.image = process.env.BASE_FILE_URL+ doc.image
+  })
 
 const studentModel = mongoose.model("Student", studentSchema);
 

@@ -5,7 +5,7 @@ import { uploadSingleFile } from '../../../multer/fileUpload.js';
 
 const router = express.Router()
 
-router.post("/addstudent",uploadSingleFile('student',"image"),verifyToken,checkRole('admin'),addStudent)
+router.post("/addstudent",uploadSingleFile("student",'image'),verifyToken,checkRole('admin'),addStudent)
 router.get("/getallstudent",getAllStudent)
 router.put("/updateStudentData",updateStudentData)
 router.delete("/deleteStudentData",deleteStudentData)

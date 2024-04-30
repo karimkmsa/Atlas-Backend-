@@ -3,12 +3,11 @@ import Joi from "joi";
 
 
 const updaStudentValidation = Joi.object({
-    firstname: Joi.string().min(2).max(20),
-    lastname: Joi.string().min(2).max(20),
+    firstName: Joi.string().min(2).max(20),
+    lastName: Joi.string().min(2).max(20),
     password: Joi.string(),
     email: Joi.string().email(),
-    phone: Joi.number(),
-    Address: Joi.string(),
+    address: Joi.string(),
     image: Joi.string(),
     dateOfBirth: Joi.date(),
     placeOfBirth: Joi.string(),
