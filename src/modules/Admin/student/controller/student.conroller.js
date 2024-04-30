@@ -30,7 +30,7 @@ export const addStudent = catchError(async (req, res, next) => {
         .json({ success: true, message: "Student Added", result });
     } catch (error) {
       console.error("Error saving to the database:", error);
-      res.status(500).json({ success: false, message: "Internal server error" });
+      res.status(500).json({ success: false, message: "Internal server error" , error });
     }
     
   });

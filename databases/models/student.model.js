@@ -7,42 +7,42 @@ const studentSchema = new mongoose.Schema(
   {
     firstName: {
       type: String,
-      required: [true,"Student first name required"],
+      // required: [true,"Student first name required"],
       trim :true
     },
     lastName: {
       type: String,
-      required: [true,"student last name required"],
+      // required: [true,"student last name required"],
       trim :true
     },
     dateOfBirth: {
       type: Date,
-      required: true,
+      // required: true,
     },
     dateOfPlace: {
       type: String,
-      required: true,
+      // required: true,
     },
     image:{
       type:String, 
     },
     address: {
       type:String,
-      required:[true,"address required"],
+      // required:[true,"address required"],
       trim:true
     },
     grade: {
       type: String,
-      required: true,
+      // required: true,
     },
     email: {
       type: String,
-      required: true,
+      // required: true,
       trim:true
     },
     password:{
       type: String,
-      required: true
+      // required: true
     },
     role: {
       type: String,
