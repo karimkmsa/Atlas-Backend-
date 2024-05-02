@@ -2,7 +2,7 @@ import { globalError } from "./middleware/globalErrorMiddleware.js";
 import ClassLevelRouter from "./modules/Admin/class/class.routes.js";
 import subjectRouter from "./modules/Admin/subject/subject.routes.js";
 import AdminteacherRouter from "./modules/Admin/teacher/teacher.routes.js";
-import ParentRoutes from "./modules/Parent/parent.routes.js"
+import MedicalRecord from "./modules/medicalRecord/medicalRecord.routes.js"
 import GradeRoutes from "./modules/grades/grades.routes.js"
 import AdminStudent from "./modules/Admin/student/student.routes.js"
 import complaintRoutes from "./modules/complaints&Recommend/complaints.routes.js"
@@ -20,7 +20,7 @@ export function bootstrap(app){
     app.use("/api/v1/admin/student",AdminStudent)
     app.use("/api/v1/admin/subject",subjectRouter)
     app.use("/api/v1/admin/class",ClassLevelRouter)
-    app.use('/api/v1/parent',ParentRoutes)
+    app.use('/api/v1/medicalrecord-recommdations',MedicalRecord)
     app.use('/api/v1/grade',GradeRoutes)
     app.use('/api/v1/complaints',complaintRoutes)
 

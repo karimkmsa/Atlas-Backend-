@@ -8,8 +8,6 @@ export  const postComplaint =catchError(async(req,res,next)=>{
     let result = new complaintModel(complaint)
     await result.save()
     res.status(201).json({message:"complaint added", result})
-
-
     })
 
     export const showComplaint =catchError(async (req, res, next) => {

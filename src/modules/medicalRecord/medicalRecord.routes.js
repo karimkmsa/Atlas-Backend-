@@ -1,5 +1,5 @@
 import express from 'express';
-import {AddMedicalRecord, showMedicalRecord, UpdateMedicalRecord, deleteMedicalRecord} from './controller/parent.controller.js'
+import {AddMedicalRecord, showMedicalRecord, UpdateMedicalRecord, deleteMedicalRecord} from './controller/medicalRecord.controller.js'
 
 const router = express.Router()
 
