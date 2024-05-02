@@ -9,33 +9,42 @@ import { generateToken } from "../../../middleware/authToken.js";
 
 
 // Add teacher
-
  const addTeacher = catchError(async (req, res, next) => {
-    let teacherData= req.body
-    const exist = await teacherModel.findOne({email:teacherData.email});
-    if (exist) {
-      return res
-        .status(404)
-        .json({ success: false, message: "teacher email already exist" });
-    }
-    let result = new teacherModel(teacherData);
-    
-    try {
-      await result.save();
+  let teacherData = req.body;
+
+  // Handle file upload for the teacher's image
+  if (req.file) {
+      teacherData.image = req.file.filename;
+  } else {
+      return res.status(400).json({ success: false, message: "No image file uploaded" });
+  }
+
+  console.log(req.body); // Debugging to see what is received in the request body
+
+  // Check if a teacher with the same email already exists
+  const exist = await teacherModel.findOne({ email: teacherData.email });
+  if (exist) {
+      return res.status(404).json({ success: false, message: "Teacher email already exists" });
+  }
+
+  // Create a new teacher record
+  let result = new teacherModel(teacherData);
+
+  try {
+      await result.save(); // Save the new teacher record to the database
       const token = generateToken({
-        id: result._id,
-        email: result.email,
-        role: result.role,
-      },process.env.JWT_SECRET)
-      res
-        .status(201)
-        .json({ success: true, message: "teacher Added", result });
-    } catch (error) {
+          id: result._id,
+          email: result.email,
+          role: result.role,
+      }, process.env.JWT_SECRET);
+
+      // Respond with success message
+      res.status(201).json({ success: true, message: "Teacher Added", result });
+  } catch (error) {
       console.error("Error saving to the database:", error);
-      res.status(500).json({ success: false, message: "Internal server error" });
-    }
-    
-  });
+      res.status(500).json({ success: false, message: "Internal server error", error });
+  }
+});
 
 
 

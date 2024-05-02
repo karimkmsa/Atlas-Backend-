@@ -22,7 +22,6 @@ const teacherSchema = new Schema(
 
     phone: {
       type: Number,
-      unique: true,
       required: true,
       trim: true,
     },
@@ -89,10 +88,13 @@ teacherSchema.pre("save", function () {
 })
 
 teacherSchema.pre('findOneAndUpdate',function(){
-  // console.log(this)
       if(this._update.password)this._update.password=bcrypt.hashSync(this._update.password,parseInt(process.env.SALTROUND))
   })
   
+  teacherSchema.post('init',function(doc){
+    console.log(doc.image);
+  doc.image = process.env.BASE_FILE_URL+"teacher/"+ doc.image
+})
 
 
 

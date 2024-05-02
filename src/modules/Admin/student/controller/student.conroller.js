@@ -8,7 +8,6 @@ import { generateToken } from "../../../../middleware/authToken.js";
 
 
 // Add Student
-// Add Student
 export const addStudent = catchError(async (req, res, next) => {
   let studentData = req.body;
   if (req.file) {
