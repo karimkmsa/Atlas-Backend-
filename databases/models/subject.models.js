@@ -22,27 +22,11 @@ duration: {
     required: [true, 'duration is required'],
     default: "3 months"
 },
-
-createdby: {
-    type: Schema.Types.ObjectId,
-    ref: 'admin',
-},
-updatedBy: {
-    type: Schema.Types.ObjectId,
-    ref: 'Admin',
-},
 teachers: {
     type: Schema.Types.ObjectId,
     ref: 'teacher',
-},
-academicterm: {
-    type: Schema.Types.ObjectId,
-    ref: 'Academicterm',
-},
-programId: {
-    type: Schema.Types.ObjectId,
-    ref: 'program',
-},
+}
+
  
 },{timeStamp:true});
 
