@@ -9,7 +9,7 @@ const router = express.Router()
 
 router.post("/addstudent",validate(addStudentValidation),uploadSingleFile("student",'image'),verifyToken,checkRole('admin'),addStudent)
 router.get("/getallstudent",getAllStudent)
-router.put("/updateStudentData",updateStudentData)
+router.put("/update-student-data/:id",uploadSingleFile("student",'image'),updateStudentData)
 router.delete("/deleteStudentData",deleteStudentData)
 router.post("/:id",getStudentDataByID)
 

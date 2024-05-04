@@ -71,18 +71,26 @@ export const getAllStudent = catchError(async (req, res, next) => {
   //  updateStudentData
 
 
-export const updateStudentData= catchError(async(req,res,next)=>{
-    const{id}=req.params
-    const StudentData=await studentModel.findByIdAndUpdate(
+  export const updateStudentData = catchError(async (req, res, next) => {
+    const { id } = req.params;
+    
+    console.log(id);
+    // Exclude email field from req.body
+    const {email,...rest}=req.body
+    console.log(rest);
+    const studentData = await studentModel.findByIdAndUpdate(
         id,
-        req.body,
-        {new:true}
-    )
-    !StudentData && next(new AppError('StudentData not found',404))
+        rest,
+        { new: true }
+    );
 
-    StudentData &&   res.status(201).json({message:"this is StudentData",StudentData})
-}
-)
+    console.log(studentData);
+    !studentData && next(new AppError('StudentData not found', 404));
+
+    studentData && res.status(201).json({ message: "this is StudentData", studentData });
+});
+
+
 
 
  export const deleteStudentData= deleteOne(studentModel,"StudentData")
