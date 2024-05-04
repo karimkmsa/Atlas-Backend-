@@ -73,11 +73,18 @@ export const getAllStudent = catchError(async (req, res, next) => {
 
   export const updateStudentData = catchError(async (req, res, next) => {
     const { id } = req.params;
-    
+ 
     console.log(id);
     // Exclude email field from req.body
     const {email,...rest}=req.body
-    console.log(rest);
+    if (req.file) {
+        // Attach the image filename from the uploaded file to the student data
+        rest.image = req.file.filename;
+    } else {
+        // Handle cases where no file was uploaded
+        return res.status(400).json({ success: false, message: "No image file uploaded" });
+    }
+
     const studentData = await studentModel.findByIdAndUpdate(
         id,
         rest,

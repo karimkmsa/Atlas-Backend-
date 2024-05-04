@@ -73,18 +73,32 @@ const getAllteachers=catchError(async(req,res,next)=>{
     })
    //  updateTeacher
 
-const updateTeacher= catchError(async(req,res,next)=>{
-    const{id}=req.params
-    const teacher=await teacherModel.findByIdAndUpdate(
-        id,
-        req.body,
-        {new:true}
-    )
-    !teacher && next(new AppError('teacher not found',404))
+    const updateTeacher = catchError(async (req, res, next) => {
+    const { id } = req.params;
+ 
+    console.log(id);
+    // Exclude email field from req.body
+    const {email,...rest}=req.body
+    if (req.file) {
+        // Attach the image filename from the uploaded file to the student data
+        rest.image = req.file.filename;
+    } else {
+        // Handle cases where no file was uploaded
+        return res.status(400).json({ success: false, message: "No image file uploaded" });
+    }
 
-      teacher &&   res.status(201).json({message:"Done",teacher})
-}
-)
+    const teacherData = await teacherModel.findByIdAndUpdate(
+        id,
+        rest,
+        { new: true }
+    );
+
+    console.log(teacherData);
+    !teacherData && next(new AppError('TeacherData not found', 404));
+
+    teacherData && res.status(201).json({ message: "this is TeacherData", teacherData });
+});
+
 
 
  const deleteTeacher= deleteOne(teacherModel,"Teacher")

@@ -14,7 +14,10 @@ subjectRouter.route('/add-subject').post(validate(addSubjectsvalidation),verifyT
 
 subjectRouter.route('/:id')
 .get(subject.getSubjectByID)
+
+subjectRouter.route('/update-subject/:id')
 .put(validate(updateSubjectValidation),verifyToken,checkRole('admin'), subject.updateSubject)
+subjectRouter.route('/delete-subject/:id')
 .delete(verifyToken,checkRole('admin'),subject.deleteSubject)
 
 export default subjectRouter

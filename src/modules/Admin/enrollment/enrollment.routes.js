@@ -1,5 +1,7 @@
 import express from 'express';
 import * as enrollment from './controller/enrollment.controller.js';
+import validate from '../../../middleware/validate.js';
+import { addEnrollmentValidation, deleteEnrollmentValidation, updateEnrollmentValidation } from './enrollment.validation.js';
 
 
 const enrollmentRouter=express.Router();
@@ -11,12 +13,12 @@ enrollmentRouter.route('/')
 
 
 enrollmentRouter.route('/addenrollment')
-.post(enrollment.addenrollment)
+.post(validate(addEnrollmentValidation),enrollment.addenrollment)
 
 
-enrollmentRouter.route('/:id')
-.put(enrollment.updateenrollment)
-
-.delete( enrollment.deleteenrollment)
+enrollmentRouter.route('/update-enrollment/:id')
+.put(validate(updateEnrollmentValidation),enrollment.updateenrollment)
+enrollmentRouter.route('/delete-enrollment/:id')
+.delete(validate(deleteEnrollmentValidation),enrollment.deleteenrollment)
 
 export default enrollmentRouter

@@ -43,6 +43,7 @@ const getAllSubjects = catchError(async (req, res, next) => {
 
 const updateSubject= catchError(async(req,res,next)=>{
     const{id}=req.params
+    
     const subject=await subjectModel.findByIdAndUpdate(
         id,
         req.body,

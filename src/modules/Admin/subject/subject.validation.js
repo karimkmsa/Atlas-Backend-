@@ -14,6 +14,7 @@ const updateSubjectValidation = Joi.object({
     name: Joi.string().min(2).max(20),
     description: Joi.string().min(2).max(1000),
     duration: Joi.string(),
+    teachers: Joi.string().hex().length(24),
   }
     
 

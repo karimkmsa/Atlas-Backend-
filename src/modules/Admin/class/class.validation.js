@@ -16,14 +16,14 @@ const updateteaherValidation = Joi.object({
     teachers: Joi.string().hex().length(24),
     subjects: Joi.string().hex().length(24),
 
-  }
-  
+  })
 
-  )
-
-
+  const deleteClassValidation = Joi.object({
+    id:Joi.string().hex().length(24).required()
+})
 
 export { 
   addClassvalidation,
   updateteaherValidation,
+  deleteClassValidation
 };
