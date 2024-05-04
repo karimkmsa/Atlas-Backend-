@@ -13,7 +13,8 @@ export const updateGrade = catchError(async (req, res, next) => {
     const { id, grade } = req.body;
     const existingGrade = await GradeModel.findById(id);
     if (existingGrade) {
-        const updatedGrade = await GradeModel.findByIdAndUpdate(id, grade, { new: true });
+        const updatedGrade = await GradeModel.findByIdAndUpdate(id, {grade:grade}, { new: true });
+        console.log(updatedGrade);
         res.json({ message: "Grade updated successfully", data: updatedGrade });
     } else {
         res.status(404).json({ message: "Grade not found" });
@@ -25,7 +26,7 @@ export const deleteGrade = catchError(async (req, res, next) => {
     const existingGrade = await GradeModel.findById(id);
     if (existingGrade) {
         await GradeModel.findByIdAndDelete(id);
-        res.json({ message: "Grade deleted successfully" });
+        res.json({ message: "Grade deleted successfully" , data:existingGrade });
     } else {
         res.status(404).json({ message: "Grade not found" });
     }
