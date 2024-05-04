@@ -9,12 +9,15 @@ import complaintRoutes from "./modules/complaints&Recommend/complaints.routes.js
 import adminAuth from "./modules/Admin/adminFeatures/auth.routes.js"
 import parentRouter from "./modules/Admin/parent/parent.routes.js"
 import loginRouter from "./modules/auth/auth.routes.js";
+import enrollmentRouter from "./modules/Admin/enrollment/enrollment.routes.js";
 import { AppError } from "./utils/AppError.js";
+
 
 export function bootstrap(app){
     app.get('/', (req, res) => res.send('Hello World!'))
     app.use("/api/v1/user/auth",loginRouter)
     app.use("/api/v1/admin/auth",adminAuth)
+    app.use("/api/v1/admin/enrollment",enrollmentRouter)
     app.use("/api/v1/admin/teacher",AdminteacherRouter)
     app.use("/api/v1/admin/parent",parentRouter)
     app.use("/api/v1/admin/student",AdminStudent)
