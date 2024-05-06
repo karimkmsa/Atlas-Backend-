@@ -41,7 +41,7 @@ const getAllClasslevels = catchError(async (req, res, next) => {
 
     
 
-
+    //updateClasslevel
 const updateClasslevel= catchError(async(req,res,next)=>{
     const{id}=req.params
     const Classlevel=await classModel.findByIdAndUpdate(
