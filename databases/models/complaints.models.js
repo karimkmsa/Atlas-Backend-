@@ -9,7 +9,7 @@ complaint:{
 ,
 role: {
     type: String,
-    enum:['admin','teacher','student','parent'],
+    enum:['student','parent'],
     default:'student'
 }
 },{
