@@ -31,7 +31,7 @@ import { deleteOne } from "../../../handlers/refactor.js"
   });
 // Get enrollment
 const getAllenrollments = catchError(async (req, res, next) => {
-    let data = await enrollmentModel.find().populate("student");
+    let data = await enrollmentModel.find();
     res.status(201).json({ message: "enrollmentModel", data }); 
 
 });
