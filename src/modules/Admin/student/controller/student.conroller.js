@@ -13,9 +13,8 @@ export const addStudent = catchError(async (req, res, next) => {
   let studentData = req.body;
   if (req.file) {
       // Attach the image filename from the uploaded file to the student data
-      studentData.image = req.file.filename;
-     let {secure_url} = await cloudinary.uploader.upload(studentData.image)
-      console.log(secure_url);
+      const { secure_url } = await cloudinary.uploader.upload(req.file.path);
+      studentData.image = secure_url;
   } else {
       // Handle cases where no file was uploaded
       return res.status(400).json({ success: false, message: "No image file uploaded" });
