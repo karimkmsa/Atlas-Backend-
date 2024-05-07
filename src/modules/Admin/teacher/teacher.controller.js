@@ -14,8 +14,9 @@ import { generateToken } from "../../../middleware/authToken.js";
 
   // Handle file upload for the teacher's image
   if (req.file) {
-      teacherData.image = req.file.filename;
-  } else {
+    const { secure_url } = await cloudinary.uploader.upload(req.file.path);
+    teacherData.image = secure_url
+ } else {
       return res.status(400).json({ success: false, message: "No image file uploaded" });
   }
 
