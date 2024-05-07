@@ -25,7 +25,7 @@ export function bootstrap(app){
     app.use("/api/v1/admin/class",ClassLevelRouter)
     app.use('/api/v1/medicalrecord-recommdations',MedicalRecord)
     app.use('/api/v1/grade',GradeRoutes)
-    app.use('/api/v1/complaints',complaintRoutes)
+    app.use('/api/v1/complaint',complaintRoutes)
 
   // url error
   app.use("*", (req, res, next) => {

@@ -4,7 +4,7 @@ import { checkRole, verifyToken } from '../../middleware/authToken.js';
 
 const router = express.Router()
 
-router.post("/postComplaint",verifyToken,checkRole(['student','parent']),postComplaint)
+router.post("/post-complaint",verifyToken,checkRole(['student','parent']),postComplaint)
 
 router.get('/',showComplaint)
 
