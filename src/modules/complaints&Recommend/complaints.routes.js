@@ -7,7 +7,7 @@ const router = express.Router()
 router.post("/post-complaint",verifyToken,checkRole(['student','parent']),postComplaint)
 
 router.get('/',showComplaint)
-router.delete("/delete-complaint/id:",deleteComplaint)
+router.delete("/delete-complaint/id:*",deleteComplaint)
 
 
 

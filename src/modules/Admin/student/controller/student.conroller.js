@@ -3,6 +3,7 @@ import { AppError } from "../../../../utils/AppError.js"
 import { catchError } from "../../../../utils/catchError.js"
 import { deleteOne } from "../../../handlers/refactor.js"
 import { generateToken } from "../../../../middleware/authToken.js";
+import cloudinary from "../../../../multer/cloudinary.js";
  
 
 
@@ -13,6 +14,7 @@ export const addStudent = catchError(async (req, res, next) => {
   if (req.file) {
       // Attach the image filename from the uploaded file to the student data
       studentData.image = req.file.filename;
+      await cloudinary.uploader.upload(studentData.image)
   } else {
       // Handle cases where no file was uploaded
       return res.status(400).json({ success: false, message: "No image file uploaded" });
