@@ -13,6 +13,6 @@ export  const postComplaint =catchError(async(req,res,next)=>{
 
     export const showComplaint =catchError(async (req, res, next) => {
         let show = await complaintModel.find();
-          res.status(201).json({ message: "complaints", show });
+          res.status(201).json({ message: "complaints", complaints:show });
       });
   
