@@ -4,6 +4,7 @@ import { AppError } from "../../../utils/AppError.js"
 import { catchError } from "../../../utils/catchError.js"
 import { deleteOne } from "../../handlers/refactor.js"
 import { generateToken } from "../../../middleware/authToken.js";
+import cloudinary from "../../../multer/cloudinary.js"
 
 
 
