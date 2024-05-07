@@ -5,6 +5,7 @@ import { catchError } from "../../../utils/catchError.js"
 
 export  const postComplaint =catchError(async(req,res,next)=>{
     let complaint= req.body
+    
     let result = new complaintModel(complaint)
     await result.save()
     res.status(201).json({message:"complaint added", result})
