@@ -11,6 +11,6 @@ router.post("/addstudent",uploadSingleFile("student",'image'),validate(addStuden
 router.get("/getallstudent",getAllStudent)
 router.put("/update-student-data/:id",uploadSingleFile("student",'image'),validate(updateStudentValidation),updateStudentData)
 router.delete("/delete-Student-Data/:id",validate(deleteStudentValidation),deleteStudentData)
-router.get("get-student-by-id/:id",getStudentDataByID)
+router.get("/get-student-by-id/:id",getStudentDataByID)
 
 export default router
